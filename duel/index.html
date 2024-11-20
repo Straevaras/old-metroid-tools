@@ -1,0 +1,130 @@
+<html>
+<head>
+<style rel="stylesheet" type="text/css">
+body {background-color: #111111;
+      font-family: 'Verdana', Helvetica, Arial, sans-serif;
+	  font-weight: normal;
+	  font-size: 10pt;
+	  line-height: 1.22rem;
+	  padding: 0;
+	  color: #bec7d2;
+	  text-shadow: 1px 1px 0px rgba(0,0,0,0.3);
+}
+
+button, select, input {
+	padding: 3px;
+	font-size: 9.5pt;
+	font-family: 'Verdana';
+	background-color: black;
+	border: 1px outset #888;
+	color: #FFB845;
+	text-decoration: none;
+}
+
+button:disabled, select:disabled {
+	color: #444444;
+}
+
+.highlight {font-weight: bold;
+			color: #FFB845;
+}
+
+#goal {font-family: "Lucida Console";
+       font-size: 85%;
+       color: #FFAAAA;
+}
+
+#rules {display: inline-block;
+		width: 700px;
+		padding: 15px;
+}
+
+#tool {display: inline-block;
+	   vertical-align: top;
+	   padding: 15px;
+	   width: 500px;
+}
+
+</style>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> <!-- jquery -->
+<script src="dueltool.js"></script>
+</head>
+<body>
+<table>
+<tr><td colspan="2">
+<h2>Super Metroid - Duel Match Tool <span id="ver"></span></h2>
+<hr />
+</td></tr>
+<tr>
+<td id="tool">
+<p>Player 1 Name: <input type="text" id="p1name"><br />
+Player 2 Name: <input type="text" id="p2name"></p>
+
+<p><span id="p1a">Player 1</span>, 1<sup>st</sup> Choice<br />
+<select id="p1c1_choice"></select>
+<select id="p1c1_type"></select>
+<select id="p1c1_sel"></select>
+<select id="p1c1_num"></select>
+<button type="button" id="p1c1_apply">Apply</button>
+</p>
+<p><span id="p2a">Player 2</span>, 1<sup>st</sup> Choice<br />
+<select id="p2c1_choice"></select>
+<select id="p2c1_type"></select>
+<select id="p2c1_sel"></select>
+<select id="p2c1_num"></select>
+<button type="button" id="p2c1_apply">Apply</button>
+</p>
+<p><span id="p2b">Player 2</span>, 2<sup>nd</sup> Choice<br />
+<select id="p2c2_choice"></select>
+<select id="p2c2_type"></select>
+<select id="p2c2_sel"></select>
+<select id="p2c2_num"></select>
+<button type="button" id="p2c2_apply">Apply</button>
+</p>
+<p><span id="p1b">Player 1</span>, 2<sup>nd</sup> Choice<br />
+<select id="p1c2_choice"></select>
+<select id="p1c2_type"></select>
+<select id="p1c2_sel"></select>
+<select id="p1c2_num"></select>
+<button type="button" id="p1c2_apply">Apply</button>
+</p>
+<p>Goal command: <span id="goal"></span></p>
+<p><button type="button" id="resettool">Reset</button></p>
+</td>
+<td id="rules">
+<h3>Rules for a Super Metroid Duel</h3>
+<p>A Super Metroid Duel involves a race of two people to beat the game of Super Metroid.
+This race, however, has certain caveats to it determined by each player.  Each player will
+select from a list something to ban and something to be required.  All bans and requirements
+will fall on both players, so players should choose carefully since they will also have to
+adhere to their own selections.  Ensure that any combination of bans and requirements doesn't
+make the game incompletable.  This tool strives to eliminate the impossible comnibations as
+well as avoiding situtations that require out of bounds.</p>
+
+<h3>Ban/Requirement Process</h3>
+<p>A player will be determined at random to make the first ban or requirement.  The player will
+make only one ban or only one requirement.  Once the first player makes the selection, the
+second player will select both ban and requirement for the race.  After the second player
+has selected both the ban and requirement, the first player will make the remaining
+selection (a ban if requirement was already selected, or vice versa).</p>
+
+<h3>Explaining Bans and Requirements</h3>
+<p>For bans, players will select either an item or powerup.  <span class="highlight">Items</span> that are banned cannot be
+picked up or used at all during the course of the entire race.  Any <span class="highlight">powerup</span> that is banned
+cannot be picked up after picking up the first powerup pack.  For <span class="highlight">missiles, super missiles,
+and power bombs</span>, a ban will set the maximum allowed at 5 (only one powerup pickup). For <span class="highlight">energy
+tanks</span>, a collection of at most 3 energy tanks is allowed.  If <span class="highlight">reserve tanks</span> are banned then no
+reserve tanks may be picked up at all.</p>
+
+<p>For requirements, players will select either an item, powerup, a last boss, or first
+mini-boss.  <span class="highlight">Items</span> that are required must be picked up at some point before the game is beaten.
+<span class="highlight">Powerups</span> are required with a specific count that must be picked up before beating the game.
+Requiring a <span class="highlight">last boss</span> sets which of the four main bosses before Tourian must be killed last.
+Requiring a <span class="highlight">first mini-boss</span> first sets which mini-boss must be killed before any major boss can be
+killed.  Other mini-bosses can be killed before the selected one.</p>
+</td>
+</tr>
+</table>
+</body>
+</html>

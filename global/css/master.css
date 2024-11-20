@@ -1,0 +1,10 @@
+body {
+	background-color: #111111;
+    font-family: 'Verdana', Helvetica, Arial, sans-serif;
+	font-weight: normal;
+	font-size: 10pt;
+	line-height: 1.22rem;
+	padding: 0;
+	color: #bec7d2;
+	text-shadow: 1px 1px 0px rgba(0,0,0,0.3);
+}

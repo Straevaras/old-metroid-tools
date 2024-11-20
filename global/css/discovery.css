@@ -1,0 +1,15 @@
+#blankbingo {
+	border: 1px solid #888;
+}
+
+#blankbingo  td {
+	background-color: #fff;
+	width: 40px;
+	height: 40px;
+}	
+
+#blankbingo td.c {background-color: yellow;}
+#blankbingo td.b {background-color: green;}
+#blankbingo td.n {background-color: red;}
+#blankbingo td.w {background-color: gray;}
+#blankbingo td.m {background-color: blue;}
